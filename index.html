@@ -28,13 +28,9 @@
 
         *,
         *::before,
-        *::after {
-            box-sizing: border-box
-        }
+        *::after { box-sizing: border-box }
 
-        html {
-            scroll-behavior: smooth
-        }
+        html { scroll-behavior: smooth }
 
         body {
             margin: 0;
@@ -46,9 +42,7 @@
             -webkit-font-smoothing: antialiased
         }
 
-        a {
-            color: inherit
-        }
+        a { color: inherit }
 
         :focus-visible {
             outline: 3px solid var(--cobalt);
@@ -105,17 +99,8 @@
             border-radius: 3px
         }
 
-        .logo i::before {
-            left: 0;
-            top: 0;
-            background: var(--ink)
-        }
-
-        .logo i::after {
-            right: 0;
-            bottom: 0;
-            background: var(--cobalt)
-        }
+        .logo i::before { left: 0; top: 0; background: var(--ink) }
+        .logo i::after { right: 0; bottom: 0; background: var(--cobalt) }
 
         .nav ul {
             display: flex;
@@ -131,9 +116,7 @@
             color: var(--muted)
         }
 
-        .nav ul a:hover {
-            color: var(--ink)
-        }
+        .nav ul a:hover { color: var(--ink) }
 
         .btn {
             display: inline-block;
@@ -148,9 +131,7 @@
             transition: background .15s
         }
 
-        .btn:hover {
-            background: var(--cobalt-dark)
-        }
+        .btn:hover { background: var(--cobalt-dark) }
 
         .btn.quiet {
             background: transparent;
@@ -158,19 +139,12 @@
             box-shadow: inset 0 0 0 1.5px var(--ink)
         }
 
-        .btn.quiet:hover {
-            background: var(--ink);
-            color: #fff
-        }
+        .btn.quiet:hover { background: var(--ink); color: #fff }
 
-        .nav .btn {
-            padding: .6rem 1.1rem
-        }
+        .nav .btn { padding: .6rem 1.1rem }
 
         /* Hero */
-        .hero {
-            padding: 5.5rem 0 6rem
-        }
+        .hero { padding: 5.5rem 0 6rem }
 
         .hero .wrap {
             display: grid;
@@ -188,10 +162,7 @@
             margin: 0
         }
 
-        h1 {
-            font-size: clamp(2.9rem, 6.2vw, 5.2rem);
-            font-weight: 700
-        }
+        h1 { font-size: clamp(2.9rem, 6.2vw, 5.2rem); font-weight: 700 }
 
         .hero p.lead {
             font-size: 1.25rem;
@@ -200,18 +171,10 @@
             margin: 1.6rem 0 2.2rem
         }
 
-        .hero .actions {
-            display: flex;
-            gap: .9rem;
-            flex-wrap: wrap
-        }
+        .hero .actions { display: flex; gap: .9rem; flex-wrap: wrap }
 
         /* Shifted browser layers */
-        .stack {
-            position: relative;
-            aspect-ratio: 1/0.9;
-            width: 100%
-        }
+        .stack { position: relative; aspect-ratio: 1/0.9; width: 100% }
 
         .win {
             position: absolute;
@@ -255,14 +218,8 @@
             animation: shift2 1s .12s cubic-bezier(.2, .8, .2, 1) both
         }
 
-        .w2 .bar {
-            background: #1d2538;
-            border-color: var(--ink)
-        }
-
-        .w2 .bar b {
-            border-color: #6c7690
-        }
+        .w2 .bar { background: #1d2538; border-color: var(--ink) }
+        .w2 .bar b { border-color: #6c7690 }
 
         .w3 {
             left: 22%;
@@ -272,40 +229,21 @@
         }
 
         @keyframes shift1 {
-            from {
-                transform: translate(22%, 26%)
-            }
-
-            to {
-                transform: none
-            }
+            from { transform: translate(22%, 26%) }
+            to { transform: none }
         }
 
         @keyframes shift2 {
-            from {
-                transform: translate(11%, 13%)
-            }
-
-            to {
-                transform: none
-            }
+            from { transform: translate(11%, 13%) }
+            to { transform: none }
         }
 
         @keyframes shift3 {
-            from {
-                transform: translate(-22%, -26%);
-                opacity: 0
-            }
-
-            to {
-                transform: none;
-                opacity: 1
-            }
+            from { transform: translate(-22%, -26%); opacity: 0 }
+            to { transform: none; opacity: 1 }
         }
 
-        .mock {
-            padding: 1.1rem 1.2rem
-        }
+        .mock { padding: 1.1rem 1.2rem }
 
         .mock .h {
             height: 14px;
@@ -315,10 +253,7 @@
             margin-bottom: 10px
         }
 
-        .mock .h.s {
-            width: 40%;
-            background: var(--cobalt)
-        }
+        .mock .h.s { width: 40%; background: var(--cobalt) }
 
         .mock .t {
             height: 7px;
@@ -327,19 +262,10 @@
             margin-bottom: 7px
         }
 
-        .mock .t:nth-of-type(4) {
-            width: 85%
-        }
+        .mock .t:nth-of-type(4) { width: 85% }
+        .mock .t:nth-of-type(5) { width: 70% }
 
-        .mock .t:nth-of-type(5) {
-            width: 70%
-        }
-
-        .mock .row {
-            display: flex;
-            gap: 8px;
-            margin-top: 14px
-        }
+        .mock .row { display: flex; gap: 8px; margin-top: 14px }
 
         .mock .row span {
             flex: 1;
@@ -355,9 +281,7 @@
         }
 
         /* Sections */
-        section {
-            padding: 6rem 0
-        }
+        section { padding: 6rem 0 }
 
         .intro {
             display: grid;
@@ -366,10 +290,7 @@
             margin-bottom: 3.5rem
         }
 
-        h2 {
-            font-size: clamp(2rem, 4vw, 3.1rem);
-            font-weight: 700
-        }
+        h2 { font-size: clamp(2rem, 4vw, 3.1rem); font-weight: 700 }
 
         .intro p {
             color: var(--muted);
@@ -400,11 +321,7 @@
             margin-right: .08em
         }
 
-        .package .sub {
-            color: var(--muted);
-            margin: 0 0 2rem;
-            max-width: 20em
-        }
+        .package .sub { color: var(--muted); margin: 0 0 2rem; max-width: 20em }
 
         .included {
             border-top: 1.5px solid var(--ink);
@@ -430,27 +347,22 @@
             background: var(--cobalt)
         }
 
-        .included h3 {
-            font-size: 1.45rem;
-            font-weight: 500;
-            margin-bottom: .3rem
-        }
-
-        .included p {
-            margin: 0;
-            color: var(--muted);
-            max-width: 34em
-        }
+        .included h3 { font-size: 1.45rem; font-weight: 500; margin-bottom: .3rem }
+        .included p { margin: 0; color: var(--muted); max-width: 34em }
 
         /* Work */
-        .work {
-            background: var(--ink);
-            color: #fff
+        .work { background: var(--ink); color: #fff }
+        .work .intro p { color: #A8B1C6 }
+
+        /* Carousel */
+        .carousel { overflow: hidden }
+
+        .track {
+            display: flex;
+            transition: transform .55s cubic-bezier(.2, .8, .2, 1)
         }
 
-        .work .intro p {
-            color: #A8B1C6
-        }
+        .slide { flex: 0 0 100%; min-width: 0; padding: 0 4px }
 
         .feature {
             display: grid;
@@ -476,41 +388,23 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center;
+            object-position: center top;
             display: block
         }
 
-        .shot:hover {
-            transform: translateY(-4px);
-            border-color: var(--sky)
-        }
+        .shot:hover { transform: translateY(-4px); border-color: var(--sky) }
 
-        .feature h3 {
-            font-size: 2rem;
-            font-weight: 500;
-            margin-bottom: .8rem
-        }
+        .shot.static { cursor: default }
+        .shot.static:hover { transform: none; border-color: #3A4358 }
 
-        .feature p {
-            color: #A8B1C6;
-            margin: 0 0 1.6rem;
-            max-width: 26em
-        }
+        .feature h3 { font-size: 2rem; font-weight: 500; margin-bottom: .8rem }
 
-        .feature .actions {
-            display: flex;
-            gap: .9rem;
-            flex-wrap: wrap
-        }
+        .feature p { color: #A8B1C6; margin: 0 0 1.6rem; max-width: 26em }
 
-        .feature a.btn {
-            background: #fff;
-            color: var(--ink)
-        }
+        .feature .actions { display: flex; gap: .9rem; flex-wrap: wrap }
 
-        .feature a.btn:hover {
-            background: var(--sky)
-        }
+        .feature a.btn { background: #fff; color: var(--ink) }
+        .feature a.btn:hover { background: var(--sky) }
 
         .feature a.btn.quiet {
             background: transparent;
@@ -518,10 +412,50 @@
             box-shadow: inset 0 0 0 1.5px #fff
         }
 
-        .feature a.btn.quiet:hover {
-            background: #fff;
-            color: var(--ink)
+        .feature a.btn.quiet:hover { background: #fff; color: var(--ink) }
+
+        .controls {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 1.1rem;
+            margin-top: 2.5rem
         }
+
+        .count {
+            font: 500 1rem var(--body);
+            color: #A8B1C6;
+            min-width: 3.5rem;
+            text-align: center;
+            font-variant-numeric: tabular-nums
+        }
+
+        .arrow {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            border: 1.5px solid #fff;
+            background: transparent;
+            color: #fff;
+            display: grid;
+            place-items: center;
+            cursor: pointer;
+            transition: background .15s, color .15s
+        }
+
+        .arrow:hover { background: #fff; color: var(--ink) }
+
+        .arrow svg {
+            width: 22px;
+            height: 22px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round
+        }
+
+        .work :focus-visible { outline-color: var(--sky) }
 
         /* Process */
         .steps {
@@ -531,10 +465,7 @@
             counter-reset: s
         }
 
-        .step {
-            border-top: 1.5px solid var(--ink);
-            padding-top: 1.2rem
-        }
+        .step { border-top: 1.5px solid var(--ink); padding-top: 1.2rem }
 
         .step::before {
             counter-increment: s;
@@ -545,24 +476,11 @@
             margin-bottom: .8rem
         }
 
-        .step h3 {
-            font-size: 1.3rem;
-            font-weight: 500;
-            margin-bottom: .5rem
-        }
-
-        .step p {
-            margin: 0;
-            color: var(--muted);
-            font-size: 1rem
-        }
+        .step h3 { font-size: 1.3rem; font-weight: 500; margin-bottom: .5rem }
+        .step p { margin: 0; color: var(--muted); font-size: 1rem }
 
         /* CTA */
-        .cta {
-            background: var(--cobalt);
-            color: #fff;
-            padding: 5.5rem 0
-        }
+        .cta { background: var(--cobalt); color: #fff; padding: 5.5rem 0 }
 
         .cta .wrap {
             display: flex;
@@ -572,24 +490,10 @@
             flex-wrap: wrap
         }
 
-        .cta h2 {
-            max-width: 14em
-        }
-
-        .cta p {
-            margin: 1rem 0 0;
-            color: #D6DDFF;
-            max-width: 30em
-        }
-
-        .cta .btn {
-            background: #fff;
-            color: var(--ink)
-        }
-
-        .cta .btn:hover {
-            background: var(--paper)
-        }
+        .cta h2 { max-width: 14em }
+        .cta p { margin: 1rem 0 0; color: #D6DDFF; max-width: 30em }
+        .cta .btn { background: #fff; color: var(--ink) }
+        .cta .btn:hover { background: var(--paper) }
 
         /* Footer */
         footer {
@@ -606,22 +510,12 @@
             flex-wrap: wrap
         }
 
-        footer a {
-            text-decoration: none
-        }
-
-        footer a:hover {
-            color: var(--ink)
-        }
+        footer a { text-decoration: none }
+        footer a:hover { color: var(--ink) }
 
         @media (max-width:900px) {
-            .nav ul {
-                display: none
-            }
-
-            .hero {
-                padding: 3.5rem 0 4rem
-            }
+            .nav ul { display: none }
+            .hero { padding: 3.5rem 0 4rem }
 
             .hero .wrap,
             .intro,
@@ -631,36 +525,19 @@
                 gap: 2rem
             }
 
-            .steps {
-                grid-template-columns: 1fr 1fr
-            }
-
-            section {
-                padding: 4rem 0
-            }
-
-            .stack {
-                max-width: 480px
-            }
+            .steps { grid-template-columns: 1fr 1fr }
+            section { padding: 4rem 0 }
+            .stack { max-width: 480px }
+            .controls { justify-content: center }
         }
 
         @media (max-width:520px) {
-            .steps {
-                grid-template-columns: 1fr
-            }
+            .steps { grid-template-columns: 1fr }
         }
 
         @media (prefers-reduced-motion:reduce) {
-
-            .w1,
-            .w2,
-            .w3 {
-                animation: none
-            }
-
-            .shot {
-                transition: none
-            }
+            .w1, .w2, .w3 { animation: none }
+            .shot, .track { transition: none }
         }
     </style>
 </head>
@@ -768,22 +645,68 @@
             <div class="wrap">
                 <div class="intro">
                     <h2>Our work</h2>
-                    <p>A look at a site we've built for a local business.</p>
+                    <p>A look at sites we've built for local businesses.</p>
                 </div>
-                <div class="feature">
-                    <!-- Looks for hero.png in pics/, then the same folder, then images/ -->
-                    <a class="shot" href="hi.html" aria-label="View the Village Sushi Bar website">
-                        <img id="work-img" src="pics/hero.png" alt="Sushi platter from Village Sushi Bar"
-                            data-fallbacks="hero.png,images/hero.png,pics/hero_1.png,hero_1.png,Pics/hero.png,Images/hero.png">
-                    </a>
-                    <div>
-                        <h3>Village Sushi Bar</h3>
-                        <p>A website for a Richmond sushi restaurant, with a full tabbed menu, photo gallery, map and
-                            one-tap calling for takeout orders.</p>
-                        <div class="actions">
-                            <a class="btn" href="hi.html">View the site</a>
-                            <a class="btn quiet" href="#contact">Get a site like this</a>
+
+                <div class="carousel" id="carousel" role="region" aria-roledescription="carousel"
+                    aria-label="Example websites">
+                    <div class="track" id="track">
+
+                        <!-- Slide 1: Village Sushi Bar -->
+                        <div class="slide" role="group" aria-roledescription="slide" aria-label="1 of 2">
+                            <div class="feature">
+                                <!-- Looks for hero.png in pics/, then the same folder, then images/ -->
+                                <a class="shot" href="hi.html" aria-label="View the Village Sushi Bar website">
+                                    <img id="work-img" src="pics/hero.png" alt="Sushi platter from Village Sushi Bar"
+                                        data-fallbacks="hero.png,images/hero.png,pics/hero_1.png,hero_1.png,Pics/hero.png,Images/hero.png">
+                                </a>
+                                <div>
+                                    <h3>Village Sushi Bar</h3>
+                                    <p>A website for a Richmond sushi restaurant, with a full tabbed menu, photo
+                                        gallery, map and one-tap calling for takeout orders.</p>
+                                    <div class="actions">
+                                        <a class="btn" href="hi.html">View the site</a>
+                                        <a class="btn quiet" href="#contact">Get a site like this</a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+
+                        <!-- Slide 2: Urban Richmond Academy -->
+                        <div class="slide" role="group" aria-roledescription="slide" aria-label="2 of 2">
+                            <div class="feature">
+                                <!-- Not clickable yet. To link it later, add href="..." to the a.shot and remove the "static" class -->
+                                <a class="shot static"
+                                    aria-label="Urban Richmond Academy website preview">
+                                    <img src="images/daycare.png"
+                                        loading="lazy">
+                                </a>
+                                <div>
+                                    <h3>Urban Richmond Academy</h3>
+                                    <p>A website for a Richmond early childhood education centre, with program and
+                                        tuition pages, a photo gallery, parent resources and a tour booking button.</p>
+                                    <div class="actions">
+                                        
+                                        <a class="btn quiet" href="#contact">Get a site like this</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="controls">
+                        <button class="arrow" id="prev" type="button" aria-label="Previous example">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M15 5l-7 7 7 7" />
+                            </svg>
+                        </button>
+                        <span class="count" id="count" aria-live="polite">1 / 2</span>
+                        <button class="arrow" id="next" type="button" aria-label="Next example">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M9 5l7 7-7 7" />
+                            </svg>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -836,6 +759,7 @@
     </footer>
 
     <script>
+        // Village Sushi image fallback paths
         (function () {
             var img = document.getElementById('work-img');
             if (!img) return;
@@ -845,6 +769,47 @@
                 if (i < list.length) { img.src = list[i++]; }
                 else { img.style.display = 'none'; }
             });
+        })();
+
+        // Work carousel
+        (function () {
+            var carousel = document.getElementById('carousel');
+            var track = document.getElementById('track');
+            var slides = track.children;
+            var count = document.getElementById('count');
+            var n = slides.length, index = 0;
+
+            function go(i) {
+                index = (i + n) % n;
+                track.style.transform = 'translateX(' + (-index * 100) + '%)';
+                count.textContent = (index + 1) + ' / ' + n;
+                for (var s = 0; s < n; s++) {
+                    var off = s !== index;
+                    slides[s].setAttribute('aria-hidden', off);
+                    var links = slides[s].querySelectorAll('a');
+                    for (var l = 0; l < links.length; l++) links[l].tabIndex = off ? -1 : 0;
+                }
+            }
+
+            document.getElementById('prev').addEventListener('click', function () { go(index - 1); });
+            document.getElementById('next').addEventListener('click', function () { go(index + 1); });
+
+            carousel.addEventListener('keydown', function (e) {
+                if (e.key === 'ArrowLeft') go(index - 1);
+                if (e.key === 'ArrowRight') go(index + 1);
+            });
+
+            // Swipe on touch screens
+            var startX = null;
+            carousel.addEventListener('touchstart', function (e) { startX = e.touches[0].clientX; }, { passive: true });
+            carousel.addEventListener('touchend', function (e) {
+                if (startX === null) return;
+                var dx = e.changedTouches[0].clientX - startX;
+                if (Math.abs(dx) > 50) go(index + (dx < 0 ? 1 : -1));
+                startX = null;
+            });
+
+            go(0);
         })();
     </script>
 </body>
