@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Village Sushi Bar | Japanese restaurant in Richmond, BC</title>
+    <meta name="description"
+        content="Sushi, sashimi, bento, tempura and hot Japanese dishes at Village Sushi Bar on No. 2 Road in Richmond, BC. Dine in or take out.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --rice: #F4F1EC;
+            --surface: #FBF9F6;
+            --ink: #1A1714;
+            --muted: #6A635B;
+            --line: #D9D3C9;
+            --tuna: #C23B2E;
+            --tuna-dark: #A12E23;
+            --nori: #1D2822;
+            --display: "Shippori Mincho", Georgia, serif;
+            --body: "Zen Kaku Gothic New", system-ui, -apple-system, "Segoe UI", sans-serif;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            margin: 0;
+            background: var(--rice);
+            color: var(--ink);
+            font-family: var(--body);
+            font-size: 1.0625rem;
+            line-height: 1.65
+        }
+
+        a {
+            color: inherit
+        }
+
+        :focus-visible {
+            outline: 3px solid var(--tuna);
+            outline-offset: 3px;
+            border-radius: 3px
+        }
+
+        .wrap {
+            width: min(1140px, 100% - 3rem);
+            margin-inline: auto
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: var(--display);
+            font-weight: 700;
+            line-height: 1.1;
+            margin: 0;
+            letter-spacing: -.01em
+        }
+
+        /* Photo slots: your files live in the "images" folder. A gradient shows if a file is missing. */
+        .photo {
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat
+        }
+
+        /* Header */
+        header.site {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: rgba(244, 241, 236, .94);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--line)
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 74px
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: .7rem;
+            text-decoration: none;
+            font: 700 1.35rem var(--display)
+        }
+
+        .logo i {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--tuna);
+            display: block
+        }
+
+        .nav ul {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            margin: 0;
+            padding: 0
+        }
+
+        .nav ul a {
+            text-decoration: none;
+            font-weight: 500;
+            color: var(--muted)
+        }
+
+        .nav ul a:hover {
+            color: var(--ink)
+        }
+
+        .btn {
+            display: inline-block;
+            font: 700 1rem var(--body);
+            padding: .8rem 1.4rem;
+            border-radius: 6px;
+            background: var(--tuna);
+            color: #fff;
+            text-decoration: none;
+            transition: background .15s
+        }
+
+        .btn:hover {
+            background: var(--tuna-dark)
+        }
+
+        .btn.ghost {
+            background: transparent;
+            color: var(--ink);
+            box-shadow: inset 0 0 0 1.5px var(--ink)
+        }
+
+        .btn.ghost:hover {
+            background: var(--ink);
+            color: #fff
+        }
+
+        .nav .btn {
+            padding: .55rem 1.1rem
+        }
+
+        /* Hero */
+        .hero {
+            padding: 4.5rem 0 5rem
+        }
+
+        .hero .wrap {
+            display: grid;
+            grid-template-columns: 1fr 1.05fr;
+            gap: 4rem;
+            align-items: center
+        }
+
+        h1 {
+            font-size: clamp(2.8rem, 6vw, 5rem)
+        }
+
+        .hero p.lead {
+            font-size: 1.2rem;
+            color: var(--muted);
+            max-width: 28em;
+            margin: 1.4rem 0 2rem
+        }
+
+        .actions {
+            display: flex;
+            gap: .9rem;
+            flex-wrap: wrap
+        }
+
+        .hero .photo {
+            aspect-ratio: 5/4;
+            border-radius: 4px;
+            background-color: var(--tuna);
+            background-image: var(--img), linear-gradient(135deg, #C23B2E 0%, #8E2A20 55%, #1D2822 100%)
+        }
+
+        /* Facts strip */
+        .facts {
+            background: var(--nori);
+            color: #fff
+        }
+
+        .facts .wrap {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr)
+        }
+
+        .fact {
+            padding: 1.6rem 1.2rem;
+            border-left: 1px solid rgba(255, 255, 255, .15)
+        }
+
+        .fact:first-child {
+            border-left: 0;
+            padding-left: 0
+        }
+
+        .fact b {
+            display: block;
+            font: 700 1.6rem var(--display)
+        }
+
+        .fact span {
+            color: #B7C0B9;
+            font-size: .95rem
+        }
+
+        section {
+            padding: 5.5rem 0
+        }
+
+        .head {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 2.5rem
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem)
+        }
+
+        .head p {
+            margin: 0;
+            color: var(--muted);
+            max-width: 28em
+        }
+
+        /* Menu */
+        .tabs {
+            display: flex;
+            gap: .5rem;
+            border-bottom: 1.5px solid var(--ink);
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap
+        }
+
+        .tabs button {
+            font: 500 1.05rem var(--body);
+            background: none;
+            border: 0;
+            padding: .8rem 1.2rem;
+            cursor: pointer;
+            color: var(--muted);
+            border-bottom: 4px solid transparent;
+            margin-bottom: -1.5px
+        }
+
+        .tabs button[aria-selected="true"] {
+            color: var(--ink);
+            font-weight: 700;
+            border-bottom-color: var(--tuna)
+        }
+
+        .panel[hidden] {
+            display: none
+        }
+
+        .cols {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem 5rem
+        }
+
+        .group {
+            margin-bottom: 2.2rem
+        }
+
+        .group h3 {
+            font-size: 1.5rem;
+            margin-bottom: .8rem
+        }
+
+        .group ul {
+            list-style: none;
+            margin: 0;
+            padding: 0
+        }
+
+        .group li {
+            display: flex;
+            gap: .8rem;
+            align-items: baseline;
+            padding: .55rem 0;
+            border-bottom: 1px dotted var(--line)
+        }
+
+        .group li span {
+            flex: 1
+        }
+
+        .group li small {
+            display: block;
+            color: var(--muted);
+            font-size: .9rem;
+            line-height: 1.4
+        }
+
+        .group li b {
+            font-weight: 700;
+            white-space: nowrap
+        }
+
+        .note {
+            color: var(--muted);
+            font-size: .95rem;
+            margin-top: 1rem
+        }
+
+        /* About + gallery */
+        .about {
+            background: var(--surface);
+            border-block: 1px solid var(--line)
+        }
+
+        .about .wrap {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center
+        }
+
+        .about p {
+            color: var(--muted);
+            margin: 1.2rem 0 0;
+            max-width: 32em
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem
+        }
+
+        .gallery .photo {
+            aspect-ratio: 1;
+            border-radius: 4px
+        }
+
+        .gallery .photo:first-child {
+            grid-row: span 2;
+            aspect-ratio: auto
+        }
+
+        .g1 {
+            background-image: var(--img), linear-gradient(160deg, #E8B7A8, #C23B2E)
+        }
+
+        .g2 {
+            background-image: var(--img), linear-gradient(160deg, #3B4A42, #1D2822)
+        }
+
+        .g3 {
+            background-image: var(--img), linear-gradient(160deg, #F0D9A8, #D9A441)
+        }
+
+        /* Visit */
+        .visit .wrap {
+            display: grid;
+            grid-template-columns: .9fr 1.1fr;
+            gap: 4rem
+        }
+
+        .visit dl {
+            margin: 2rem 0 0
+        }
+
+        .visit dt {
+            font-weight: 700;
+            margin-top: 1.3rem
+        }
+
+        .visit dd {
+            margin: .2rem 0 0;
+            color: var(--muted)
+        }
+
+        .visit dd a {
+            color: var(--ink)
+        }
+
+        .map {
+            border: 0;
+            width: 100%;
+            min-height: 380px;
+            height: 100%;
+            border-radius: 4px;
+            filter: grayscale(.2)
+        }
+
+        footer {
+            background: var(--ink);
+            color: #B9B2A8;
+            padding: 2.5rem 0;
+            font-size: .95rem
+        }
+
+        footer .wrap {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: wrap
+        }
+
+        @media (max-width:900px) {
+            .nav ul {
+                display: none
+            }
+
+            .hero {
+                padding: 3rem 0 3.5rem
+            }
+
+            .hero .wrap,
+            .about .wrap,
+            .visit .wrap,
+            .cols {
+                grid-template-columns: 1fr;
+                gap: 2rem
+            }
+
+            .facts .wrap {
+                grid-template-columns: 1fr 1fr
+            }
+
+            .fact:nth-child(3) {
+                border-left: 0;
+                padding-left: 0
+            }
+
+            section {
+                padding: 4rem 0
+            }
+
+            .map {
+                min-height: 300px
+            }
+        }
+
+        @media (prefers-reduced-motion:reduce) {
+            html {
+                scroll-behavior: auto
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="site">
+        <div class="wrap nav">
+            <a class="logo" href="#top"><i></i>Village Sushi Bar</a>
+            <nav aria-label="Main">
+                <ul>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#visit">Visit</a></li>
+                </ul>
+            </nav>
+            <a class="btn" href="tel:+16042711067">Call to order</a>
+        </div>
+    </header>
+
+    <main id="top">
+
+        <div class="hero">
+            <div class="wrap">
+                <div>
+                    <h1>Sushi and Japanese comfort food in Richmond.</h1>
+                    <p class="lead">Nigiri, rolls, sashimi, bento boxes and hot plates, served in a relaxed
+                        neighbourhood spot on No. 2 Road. Eat in or take it home.</p>
+                    <div class="actions">
+                        <a class="btn" href="#menu">See the menu</a>
+                        <a class="btn ghost" href="#visit">Get directions</a>
+                    </div>
+                </div>
+                <!-- HERO PHOTO -->
+                <div class="photo" style="--img:url('images/hero.png')" role="img"
+                    aria-label="Sushi platter with nigiri, rolls and tobiko gunkan"></div>
+            </div>
+        </div>
+
+        <div class="facts">
+            <div class="wrap">
+                <div class="fact"><b>4.5 stars</b><span>from 220 Google reviews</span></div>
+                <div class="fact"><b>$10&ndash;20</b><span>per person</span></div>
+                <div class="fact"><b>Dine-in</b><span>and takeout</span></div>
+                <div class="fact"><b>Party trays</b><span>for 36 to 60 pieces</span></div>
+            </div>
+        </div>
+
+        <section id="menu">
+            <div class="wrap">
+                <div class="head">
+                    <h2>Menu</h2>
+                    <p>A selection of what we serve. Prices are in CAD and may change, so call if you want to confirm.
+                    </p>
+                </div>
+
+                <div class="tabs" role="tablist" aria-label="Menu categories">
+                    <button role="tab" id="t1" aria-selected="true" aria-controls="p1">Sushi &amp; sashimi</button>
+                    <button role="tab" id="t2" aria-selected="false" aria-controls="p2" tabindex="-1">Combos &amp;
+                        bento</button>
+                    <button role="tab" id="t3" aria-selected="false" aria-controls="p3" tabindex="-1">Hot
+                        kitchen</button>
+                </div>
+
+                <div class="panel" id="p1" role="tabpanel" aria-labelledby="t1">
+                    <div class="cols">
+                        <div>
+                            <div class="group">
+                                <h3>Nigiri</h3>
+                                <ul>
+                                    <li><span>Salmon nigiri</span><b>2.75</b></li>
+                                    <li><span>Chopped scallop nigiri</span><b>3.75</b></li>
+                                    <li><span>Unagi (eel) nigiri</span><b>3.75</b></li>
+                                </ul>
+                            </div>
+                            <div class="group">
+                                <h3>Rolls</h3>
+                                <ul>
+                                    <li><span>Negitoro roll</span><b>4.75</b></li>
+                                    <li><span>Chopped scallop roll</span><b>5.50</b></li>
+                                    <li><span>Ebi salad roll<small>Boiled prawn, lettuce, cucumber,
+                                                mayo</small></span><b>5.50</b></li>
+                                    <li><span>Mixed roll<small>Tuna, salmon, cucumber</small></span><b>5.50</b></li>
+                                    <li><span>Futomaki, 6 pcs<small>Spinach, egg, shiitake,
+                                                cucumber</small></span><b>6.00</b></li>
+                                    <li><span>Dragon roll<small>BBQ eel, prawns, lettuce,
+                                                cucumber</small></span><b>7.50</b></li>
+                                    <li><span>Deluxe futomaki</span><b>8.25</b></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="group">
+                                <h3>Sashimi</h3>
+                                <ul>
+                                    <li><span>Salmon sashimi, 5 pcs</span><b>12.50</b></li>
+                                    <li><span>Tuna sashimi, 5 pcs</span><b>12.50</b></li>
+                                    <li><span>Appetizer sashimi<small>4 pcs tuna, 3 pcs
+                                                salmon</small></span><b>17.50</b></li>
+                                    <li><span>Chirashi<small>Assorted sashimi on sushi rice</small></span><b>18.50</b>
+                                    </li>
+                                    <li><span>Shimesaba (pickled mackerel)<small>5 pcs, as sashimi or
+                                                nigiri</small></span></li>
+                                </ul>
+                            </div>
+                            <div class="group">
+                                <h3>Specials</h3>
+                                <ul>
+                                    <li><span>Blue fin tuna red (otoro)</span></li>
+                                    <li><span>Hamachi belly</span></li>
+                                    <li><span>Local uni<small>As sashimi or nigiri</small></span></li>
+                                </ul>
+                                <p class="note">Specials depend on the day's catch. Ask what's in.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel" id="p2" role="tabpanel" aria-labelledby="t2" hidden>
+                    <div class="cols">
+                        <div>
+                            <div class="group">
+                                <h3>Combos</h3>
+                                <ul>
+                                    <li><span>Sushi combo, 9 pcs<small>California roll, plus 1 pc each salmon, tuna and
+                                                prawn nigiri</small></span><b>13.00</b></li>
+                                    <li><span>Trio roll combo, 18 pcs<small>Salmon roll, tuna roll, California
+                                                roll</small></span><b>13.75</b></li>
+                                    <li><span>Trio nigiri combo, 6 pcs<small>2 pcs each salmon, tuna,
+                                                prawn</small></span><b>16.25</b></li>
+                                    <li><span>Dinner special<small>1 pc each ebi, tuna and salmon nigiri, plus 3 pcs
+                                                spicy tuna roll</small></span></li>
+                                </ul>
+                            </div>
+                            <div class="group">
+                                <h3>Party trays</h3>
+                                <ul>
+                                    <li><span>Samurai tray<small>36 pcs</small></span></li>
+                                    <li><span>Sumo tray<small>45 pcs</small></span></li>
+                                    <li><span>Vegetarian tray<small>60 pcs</small></span></li>
+                                </ul>
+                                <p class="note">Planning a gathering? Call ahead to order.</p>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="group">
+                                <h3>Bento &amp; grilled fish</h3>
+                                <ul>
+                                    <li><span>Mega bento<small>Chicken or beef teriyaki, tempura, Alaska roll, 3 pcs
+                                                gyoza, salad, ebi sunomono, miso soup</small></span></li>
+                                    <li><span>Steveston bento<small>Sashimi, 3 pcs nigiri, tempura, Steveston roll,
+                                                salad, ebi sunomono, miso soup</small></span></li>
+                                    <li><span>Grilled fish combo<small>Grilled saba and yellow corvina, miso soup,
+                                                salad, rice, marinated veggie</small></span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel" id="p3" role="tabpanel" aria-labelledby="t3" hidden>
+                    <div class="cols">
+                        <div>
+                            <div class="group">
+                                <h3>Starters &amp; salads</h3>
+                                <ul>
+                                    <li><span>Ebi sunomono<small>Also available as vege or
+                                                tako</small></span><b>6.50</b></li>
+                                    <li><span>Gomae<small>Spinach with sesame sauce</small></span></li>
+                                    <li><span>Tuna gomae</span></li>
+                                    <li><span>Seaweed salad (wakame)</span></li>
+                                    <li><span>House green salad</span></li>
+                                    <li><span>Seafood salad</span></li>
+                                </ul>
+                            </div>
+                            <div class="group">
+                                <h3>Tempura</h3>
+                                <ul>
+                                    <li><span>Appetizer tempura<small>2 pcs prawn, 4 pcs veg</small></span></li>
+                                    <li><span>Prawn tempura<small>7 pcs</small></span></li>
+                                    <li><span>Vegetable tempura<small>9 pcs</small></span></li>
+                                    <li><span>Yam tempura<small>7 pcs</small></span></li>
+                                    <li><span>Prawn &amp; yam tempura<small>4 pcs each</small></span></li>
+                                    <li><span>Assorted tempura<small>4 pcs prawn, 2 pcs fish, 6 pcs veg</small></span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="group">
+                                <h3>Noodles</h3>
+                                <ul>
+                                    <li><span>Chicken udon</span><b>12.50</b></li>
+                                    <li><span>Udon<small>Plain, vegetable, beef, tempura, nabeyaki or
+                                                seafood</small></span></li>
+                                    <li><span>Miso ramen</span></li>
+                                    <li><span>Yakisoba &amp; yakiudon<small>Pan-fried with vegetable, chicken, beef or
+                                                seafood</small></span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="group">
+                                <h3>Rice bowls</h3>
+                                <ul>
+                                    <li><span>Chicken teri don</span></li>
+                                    <li><span>Beef teri don</span></li>
+                                    <li><span>Oyako don</span></li>
+                                    <li><span>Gyu don</span></li>
+                                    <li><span>Ten don</span></li>
+                                    <li><span>Katsu don<small>Pork or chicken</small></span></li>
+                                    <li><span>Unagi don</span></li>
+                                </ul>
+                            </div>
+                            <div class="group">
+                                <h3>Teriyaki &amp; katsu</h3>
+                                <ul>
+                                    <li><span>Teriyaki<small>Chicken, beef, Atlantic salmon, sockeye salmon, seafood or
+                                                tofu</small></span></li>
+                                    <li><span>Chicken breast katsu</span></li>
+                                    <li><span>Pork katsu</span></li>
+                                </ul>
+                            </div>
+                            <div class="group">
+                                <h3>Sukiyaki &amp; Korean dishes</h3>
+                                <ul>
+                                    <li><span>Sukiyaki<small>For 2, or vegetable, seafood, beef, noodle or
+                                                abalone</small></span></li>
+                                    <li><span>Soon-dubu</span></li>
+                                    <li><span>Bibimbap</span></li>
+                                    <li><span>Dolsot bibimbap<small>Dine-in only</small></span></li>
+                                    <li><span>Spicy pork</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="about" id="about">
+            <div class="wrap">
+                <div>
+                    <h2>A neighbourhood sushi bar.</h2>
+                    <p>Village Sushi Bar serves the sushi and Japanese dishes people order again and again, from simple
+                        salmon nigiri to bento boxes, hot noodle bowls and a few Korean favourites. It's an easy place
+                        for a quick lunch, a family dinner, or a tray for the office.</p>
+                    <p>Dining in or taking out, the menu stays friendly on the wallet, with most people spending $10 to
+                        $20.</p>
+                </div>
+                <!-- GALLERY -->
+                <div class="gallery">
+                    <div class="photo g1" style="--img:url('images/photo1.png')" role="img"
+                        aria-label="Chirashi bowl with sashimi, prawn and tamago"></div>
+                    <div class="photo g2" style="--img:url('images/photo2.png')" role="img"
+                        aria-label="Box of nigiri with salmon, tuna, scallop and tobiko"></div>
+                    <div class="photo g3" style="--img:url('images/photo3.png')" role="img"
+                        aria-label="Rice bowls and a box of sushi rolls"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="visit" id="visit">
+            <div class="wrap">
+                <div>
+                    <h2>Visit us</h2>
+                    <dl>
+                        <dt>Address</dt>
+                        <dd>13020 No. 2 Rd #150<br>Richmond, BC V7E 6S3</dd>
+                        <dt>Phone</dt>
+                        <dd><a href="tel:+16042711067">(604) 271-1067</a></dd>
+                        <dt>Hours</dt>
+                        <dd><!-- Add your full opening hours here -->Call or check Google Maps for today's hours.</dd>
+                    </dl>
+                    <div class="actions" style="margin-top:2rem">
+                        <a class="btn"
+                            href="https://www.google.com/maps/search/?api=1&query=Village+Sushi+Bar+13020+No+2+Rd+%23150+Richmond+BC"
+                            target="_blank" rel="noopener">Get directions</a>
+                        <a class="btn ghost" href="tel:+16042711067">Call to order</a>
+                    </div>
+                </div>
+                <iframe class="map" title="Map showing Village Sushi Bar" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    src="https://www.google.com/maps?q=13020+No+2+Rd+%23150+Richmond+BC+V7E+6S3&output=embed"></iframe>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="wrap">
+            <span>&copy; 2026 Village Sushi Bar</span>
+            <span>13020 No. 2 Rd #150, Richmond, BC &middot; (604) 271-1067</span>
+        </div>
+    </footer>
+
+    <script>
+        (function () {
+            var tabs = document.querySelectorAll('[role="tab"]');
+            function show(tab) {
+                tabs.forEach(function (t) {
+                    var on = t === tab;
+                    t.setAttribute('aria-selected', on);
+                    t.tabIndex = on ? 0 : -1;
+                    document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+                });
+            }
+            tabs.forEach(function (t, i) {
+                t.addEventListener('click', function () { show(t) });
+                t.addEventListener('keydown', function (e) {
+                    var n = e.key === 'ArrowRight' ? i + 1 : e.key === 'ArrowLeft' ? i - 1 : null;
+                    if (n === null) return;
+                    n = (n + tabs.length) % tabs.length;
+                    tabs[n].focus(); show(tabs[n]);
+                });
+            });
+        })();
+    </script>
+</body>
+
+</html>

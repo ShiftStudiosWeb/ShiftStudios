@@ -460,13 +460,29 @@
         }
 
         .shot {
+            display: block;
+            position: relative;
             aspect-ratio: 16/10;
             border-radius: 10px;
             border: 1.5px solid #3A4358;
-            background-color: #232B3F;
-            background-size: cover;
-            background-position: top center;
-            background-image: var(--img), linear-gradient(135deg, #2747F5 0%, #1B34C4 45%, #121826 100%)
+            overflow: hidden;
+            background: linear-gradient(135deg, #2747F5 0%, #1B34C4 45%, #121826 100%);
+            transition: transform .2s, border-color .2s
+        }
+
+        .shot img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block
+        }
+
+        .shot:hover {
+            transform: translateY(-4px);
+            border-color: var(--sky)
         }
 
         .feature h3 {
@@ -481,6 +497,12 @@
             max-width: 26em
         }
 
+        .feature .actions {
+            display: flex;
+            gap: .9rem;
+            flex-wrap: wrap
+        }
+
         .feature a.btn {
             background: #fff;
             color: var(--ink)
@@ -488,6 +510,17 @@
 
         .feature a.btn:hover {
             background: var(--sky)
+        }
+
+        .feature a.btn.quiet {
+            background: transparent;
+            color: #fff;
+            box-shadow: inset 0 0 0 1.5px #fff
+        }
+
+        .feature a.btn.quiet:hover {
+            background: #fff;
+            color: var(--ink)
         }
 
         /* Process */
@@ -624,6 +657,10 @@
             .w3 {
                 animation: none
             }
+
+            .shot {
+                transition: none
+            }
         }
     </style>
 </head>
@@ -734,14 +771,19 @@
                     <p>A look at a site we've built for a local business.</p>
                 </div>
                 <div class="feature">
-                    <!-- Take a screenshot of the Village Sushi Bar site and save it as pics/village-sushi.png -->
-                    <div class="shot" style="--img:url('pics/village-sushi.png')" role="img"
-                        aria-label="Screenshot of the Village Sushi Bar website"></div>
+                    <!-- Looks for hero.png in pics/, then the same folder, then images/ -->
+                    <a class="shot" href="hi.html" aria-label="View the Village Sushi Bar website">
+                        <img id="work-img" src="pics/hero.png" alt="Sushi platter from Village Sushi Bar"
+                            data-fallbacks="hero.png,images/hero.png,pics/hero_1.png,hero_1.png,Pics/hero.png,Images/hero.png">
+                    </a>
                     <div>
                         <h3>Village Sushi Bar</h3>
                         <p>A website for a Richmond sushi restaurant, with a full tabbed menu, photo gallery, map and
                             one-tap calling for takeout orders.</p>
-                        <a class="btn" href="#contact">Get a site like this</a>
+                        <div class="actions">
+                            <a class="btn" href="hi.html">View the site</a>
+                            <a class="btn quiet" href="#contact">Get a site like this</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -793,6 +835,18 @@
         </div>
     </footer>
 
+    <script>
+        (function () {
+            var img = document.getElementById('work-img');
+            if (!img) return;
+            var list = (img.getAttribute('data-fallbacks') || '').split(',');
+            var i = 0;
+            img.addEventListener('error', function () {
+                if (i < list.length) { img.src = list[i++]; }
+                else { img.style.display = 'none'; }
+            });
+        })();
+    </script>
 </body>
 
 </html>
