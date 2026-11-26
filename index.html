@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Shift Studios | Websites for growing businesses</title>
+    <meta name="description"
+        content="Shift Studios designs and builds fast, clear websites for businesses that are ready to grow. A complete 5-page website for $300.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Figtree:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --paper: #EBEEF2;
+            --surface: #F8F9FB;
+            --ink: #121826;
+            --muted: #566074;
+            --line: #CDD3DD;
+            --cobalt: #2747F5;
+            --cobalt-dark: #1B34C4;
+            --sky: #B9C6FF;
+            --display: "Bricolage Grotesque", Georgia, serif;
+            --body: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            margin: 0;
+            background: var(--paper);
+            color: var(--ink);
+            font-family: var(--body);
+            font-size: 1.0625rem;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased
+        }
+
+        a {
+            color: inherit
+        }
+
+        :focus-visible {
+            outline: 3px solid var(--cobalt);
+            outline-offset: 3px;
+            border-radius: 4px
+        }
+
+        .wrap {
+            width: min(1160px, 100% - 3rem);
+            margin-inline: auto
+        }
+
+        /* Header */
+        header.site {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: rgba(235, 238, 242, .92);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--line)
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 72px
+        }
+
+        .logo {
+            font-family: var(--display);
+            font-weight: 700;
+            font-size: 1.35rem;
+            letter-spacing: -.02em;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: .6rem
+        }
+
+        .logo i {
+            display: inline-block;
+            width: 22px;
+            height: 22px;
+            position: relative
+        }
+
+        .logo i::before,
+        .logo i::after {
+            content: "";
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            border-radius: 3px
+        }
+
+        .logo i::before {
+            left: 0;
+            top: 0;
+            background: var(--ink)
+        }
+
+        .logo i::after {
+            right: 0;
+            bottom: 0;
+            background: var(--cobalt)
+        }
+
+        .nav ul {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            margin: 0;
+            padding: 0
+        }
+
+        .nav ul a {
+            text-decoration: none;
+            font-weight: 500;
+            color: var(--muted)
+        }
+
+        .nav ul a:hover {
+            color: var(--ink)
+        }
+
+        .btn {
+            display: inline-block;
+            font: 600 1rem var(--body);
+            padding: .85rem 1.4rem;
+            border-radius: 8px;
+            background: var(--cobalt);
+            color: #fff;
+            text-decoration: none;
+            border: 0;
+            cursor: pointer;
+            transition: background .15s
+        }
+
+        .btn:hover {
+            background: var(--cobalt-dark)
+        }
+
+        .btn.quiet {
+            background: transparent;
+            color: var(--ink);
+            box-shadow: inset 0 0 0 1.5px var(--ink)
+        }
+
+        .btn.quiet:hover {
+            background: var(--ink);
+            color: #fff
+        }
+
+        .nav .btn {
+            padding: .6rem 1.1rem
+        }
+
+        /* Hero */
+        .hero {
+            padding: 5.5rem 0 6rem
+        }
+
+        .hero .wrap {
+            display: grid;
+            grid-template-columns: 1.05fr .95fr;
+            gap: 4rem;
+            align-items: center
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: var(--display);
+            letter-spacing: -.03em;
+            line-height: 1.02;
+            margin: 0
+        }
+
+        h1 {
+            font-size: clamp(2.9rem, 6.2vw, 5.2rem);
+            font-weight: 700
+        }
+
+        .hero p.lead {
+            font-size: 1.25rem;
+            color: var(--muted);
+            max-width: 30em;
+            margin: 1.6rem 0 2.2rem
+        }
+
+        .hero .actions {
+            display: flex;
+            gap: .9rem;
+            flex-wrap: wrap
+        }
+
+        /* Shifted browser layers */
+        .stack {
+            position: relative;
+            aspect-ratio: 1/0.9;
+            width: 100%
+        }
+
+        .win {
+            position: absolute;
+            width: 78%;
+            height: 70%;
+            border-radius: 12px;
+            border: 1.5px solid var(--ink);
+            background: var(--surface);
+            overflow: hidden
+        }
+
+        .win .bar {
+            height: 30px;
+            border-bottom: 1.5px solid var(--ink);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 0 12px;
+            background: var(--paper)
+        }
+
+        .win .bar b {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            border: 1.5px solid var(--ink);
+            display: block
+        }
+
+        .w1 {
+            left: 0;
+            top: 0;
+            background: var(--sky);
+            animation: shift1 1s cubic-bezier(.2, .8, .2, 1) both
+        }
+
+        .w2 {
+            left: 11%;
+            top: 13%;
+            background: var(--ink);
+            animation: shift2 1s .12s cubic-bezier(.2, .8, .2, 1) both
+        }
+
+        .w2 .bar {
+            background: #1d2538;
+            border-color: var(--ink)
+        }
+
+        .w2 .bar b {
+            border-color: #6c7690
+        }
+
+        .w3 {
+            left: 22%;
+            top: 26%;
+            animation: shift3 1s .24s cubic-bezier(.2, .8, .2, 1) both;
+            box-shadow: 10px 10px 0 var(--cobalt)
+        }
+
+        @keyframes shift1 {
+            from {
+                transform: translate(22%, 26%)
+            }
+
+            to {
+                transform: none
+            }
+        }
+
+        @keyframes shift2 {
+            from {
+                transform: translate(11%, 13%)
+            }
+
+            to {
+                transform: none
+            }
+        }
+
+        @keyframes shift3 {
+            from {
+                transform: translate(-22%, -26%);
+                opacity: 0
+            }
+
+            to {
+                transform: none;
+                opacity: 1
+            }
+        }
+
+        .mock {
+            padding: 1.1rem 1.2rem
+        }
+
+        .mock .h {
+            height: 14px;
+            width: 62%;
+            background: var(--ink);
+            border-radius: 3px;
+            margin-bottom: 10px
+        }
+
+        .mock .h.s {
+            width: 40%;
+            background: var(--cobalt)
+        }
+
+        .mock .t {
+            height: 7px;
+            background: var(--line);
+            border-radius: 3px;
+            margin-bottom: 7px
+        }
+
+        .mock .t:nth-of-type(4) {
+            width: 85%
+        }
+
+        .mock .t:nth-of-type(5) {
+            width: 70%
+        }
+
+        .mock .row {
+            display: flex;
+            gap: 8px;
+            margin-top: 14px
+        }
+
+        .mock .row span {
+            flex: 1;
+            height: 54px;
+            border-radius: 6px;
+            background: var(--paper);
+            border: 1.5px solid var(--line)
+        }
+
+        .mock .row span:first-child {
+            background: var(--cobalt);
+            border-color: var(--cobalt)
+        }
+
+        /* Sections */
+        section {
+            padding: 6rem 0
+        }
+
+        .intro {
+            display: grid;
+            grid-template-columns: 1fr 1.4fr;
+            gap: 4rem;
+            margin-bottom: 3.5rem
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 3.1rem);
+            font-weight: 700
+        }
+
+        .intro p {
+            color: var(--muted);
+            font-size: 1.15rem;
+            margin: 0;
+            max-width: 34em
+        }
+
+        /* Package */
+        .package {
+            display: grid;
+            grid-template-columns: 1fr 1.4fr;
+            gap: 4rem;
+            align-items: start
+        }
+
+        .price {
+            font: 700 clamp(4.5rem, 9vw, 7rem)/1 var(--display);
+            letter-spacing: -.04em;
+            margin: 1.5rem 0 .4rem
+        }
+
+        .price sup {
+            font-size: .4em;
+            vertical-align: top;
+            position: relative;
+            top: .25em;
+            margin-right: .08em
+        }
+
+        .package .sub {
+            color: var(--muted);
+            margin: 0 0 2rem;
+            max-width: 20em
+        }
+
+        .included {
+            border-top: 1.5px solid var(--ink);
+            list-style: none;
+            margin: 0;
+            padding: 0
+        }
+
+        .included li {
+            display: grid;
+            grid-template-columns: 2rem 1fr;
+            gap: .5rem;
+            padding: 1.4rem 0;
+            border-bottom: 1px solid var(--line)
+        }
+
+        .included li::before {
+            content: "";
+            width: 14px;
+            height: 14px;
+            margin-top: .45rem;
+            border-radius: 3px;
+            background: var(--cobalt)
+        }
+
+        .included h3 {
+            font-size: 1.45rem;
+            font-weight: 500;
+            margin-bottom: .3rem
+        }
+
+        .included p {
+            margin: 0;
+            color: var(--muted);
+            max-width: 34em
+        }
+
+        /* Work */
+        .work {
+            background: var(--ink);
+            color: #fff
+        }
+
+        .work .intro p {
+            color: #A8B1C6
+        }
+
+        .feature {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr;
+            gap: 3.5rem;
+            align-items: center
+        }
+
+        .shot {
+            aspect-ratio: 16/10;
+            border-radius: 10px;
+            border: 1.5px solid #3A4358;
+            background-color: #232B3F;
+            background-size: cover;
+            background-position: top center;
+            background-image: var(--img), linear-gradient(135deg, #2747F5 0%, #1B34C4 45%, #121826 100%)
+        }
+
+        .feature h3 {
+            font-size: 2rem;
+            font-weight: 500;
+            margin-bottom: .8rem
+        }
+
+        .feature p {
+            color: #A8B1C6;
+            margin: 0 0 1.6rem;
+            max-width: 26em
+        }
+
+        .feature a.btn {
+            background: #fff;
+            color: var(--ink)
+        }
+
+        .feature a.btn:hover {
+            background: var(--sky)
+        }
+
+        /* Process */
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            counter-reset: s
+        }
+
+        .step {
+            border-top: 1.5px solid var(--ink);
+            padding-top: 1.2rem
+        }
+
+        .step::before {
+            counter-increment: s;
+            content: counter(s);
+            font: 700 2.6rem/1 var(--display);
+            color: var(--cobalt);
+            display: block;
+            margin-bottom: .8rem
+        }
+
+        .step h3 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-bottom: .5rem
+        }
+
+        .step p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 1rem
+        }
+
+        /* CTA */
+        .cta {
+            background: var(--cobalt);
+            color: #fff;
+            padding: 5.5rem 0
+        }
+
+        .cta .wrap {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 3rem;
+            flex-wrap: wrap
+        }
+
+        .cta h2 {
+            max-width: 14em
+        }
+
+        .cta p {
+            margin: 1rem 0 0;
+            color: #D6DDFF;
+            max-width: 30em
+        }
+
+        .cta .btn {
+            background: #fff;
+            color: var(--ink)
+        }
+
+        .cta .btn:hover {
+            background: var(--paper)
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 0;
+            border-top: 1px solid var(--line);
+            color: var(--muted);
+            font-size: .95rem
+        }
+
+        footer .wrap {
+            display: flex;
+            justify-content: space-between;
+            gap: 1.5rem;
+            flex-wrap: wrap
+        }
+
+        footer a {
+            text-decoration: none
+        }
+
+        footer a:hover {
+            color: var(--ink)
+        }
+
+        @media (max-width:900px) {
+            .nav ul {
+                display: none
+            }
+
+            .hero {
+                padding: 3.5rem 0 4rem
+            }
+
+            .hero .wrap,
+            .intro,
+            .package,
+            .feature {
+                grid-template-columns: 1fr;
+                gap: 2rem
+            }
+
+            .steps {
+                grid-template-columns: 1fr 1fr
+            }
+
+            section {
+                padding: 4rem 0
+            }
+
+            .stack {
+                max-width: 480px
+            }
+        }
+
+        @media (max-width:520px) {
+            .steps {
+                grid-template-columns: 1fr
+            }
+        }
+
+        @media (prefers-reduced-motion:reduce) {
+
+            .w1,
+            .w2,
+            .w3 {
+                animation: none
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="site">
+        <div class="wrap nav">
+            <a class="logo" href="#top" aria-label="Shift Studios home"><i></i>Shift Studios</a>
+            <nav aria-label="Main">
+                <ul>
+                    <li><a href="#package">Package</a></li>
+                    <li><a href="#work">Work</a></li>
+                    <li><a href="#process">Process</a></li>
+                </ul>
+            </nav>
+            <a class="btn" href="#contact">Start a project</a>
+        </div>
+    </header>
+
+    <main id="top">
+
+        <div class="hero">
+            <div class="wrap">
+                <div>
+                    <h1>Websites built to move your business forward.</h1>
+                    <p class="lead">Shift Studios designs and builds fast, clear websites for businesses that have
+                        outgrown their current one. A complete five-page site, live on the web, for $300.</p>
+                    <div class="actions">
+                        <a class="btn" href="#contact">Start a project</a>
+                        <a class="btn quiet" href="#package">See what's included</a>
+                    </div>
+                </div>
+
+                <div class="stack" role="img" aria-label="Three browser windows layered and offset from each other">
+                    <div class="win w1">
+                        <div class="bar"><b></b><b></b><b></b></div>
+                    </div>
+                    <div class="win w2">
+                        <div class="bar"><b></b><b></b><b></b></div>
+                    </div>
+                    <div class="win w3">
+                        <div class="bar"><b></b><b></b><b></b></div>
+                        <div class="mock">
+                            <div class="h"></div>
+                            <div class="h s"></div>
+                            <div class="t"></div>
+                            <div class="t"></div>
+                            <div class="t"></div>
+                            <div class="row"><span></span><span></span><span></span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section id="package">
+            <div class="wrap package">
+                <div>
+                    <h2>One package. Everything included.</h2>
+                    <div class="price"><sup>$</sup>300</div>
+                    <p class="sub">One-time price for the complete website.</p>
+                    <a class="btn" href="#contact">Get started</a>
+                </div>
+                <ul class="included">
+                    <li>
+                        <div>
+                            <h3>5 unique pages</h3>
+                            <p>Five pages designed for your business, like home, services, about, gallery and contact.
+                                Not a template with your logo on it.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <h3>Unlimited stock images and banners</h3>
+                            <p>We find and place the photos and banners your site needs, as many as the design calls
+                                for.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <h3>Interactive UI design</h3>
+                            <p>Menus, tabs, buttons and forms that respond when your visitors use them, so the site
+                                feels alive.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <h3>Cross-browser compatible</h3>
+                            <p>Your site works in Chrome, Safari, Firefox and Edge, on phones, tablets and computers.
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <h3>Complete deployment</h3>
+                            <p>We put the site live on the internet for you, so you don't have to set anything up.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="work" id="work">
+            <div class="wrap">
+                <div class="intro">
+                    <h2>Our work</h2>
+                    <p>A look at a site we've built for a local business.</p>
+                </div>
+                <div class="feature">
+                    <!-- Take a screenshot of the Village Sushi Bar site and save it as pics/village-sushi.png -->
+                    <div class="shot" style="--img:url('pics/village-sushi.png')" role="img"
+                        aria-label="Screenshot of the Village Sushi Bar website"></div>
+                    <div>
+                        <h3>Village Sushi Bar</h3>
+                        <p>A website for a Richmond sushi restaurant, with a full tabbed menu, photo gallery, map and
+                            one-tap calling for takeout orders.</p>
+                        <a class="btn" href="#contact">Get a site like this</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="process">
+            <div class="wrap">
+                <div class="intro">
+                    <h2>How a project works</h2>
+                    <p>You'll always know what's happening and what we need from you.</p>
+                </div>
+                <div class="steps">
+                    <div class="step">
+                        <h3>Discovery</h3>
+                        <p>We learn about your business, your customers and what you want your site to do.</p>
+                    </div>
+                    <div class="step">
+                        <h3>Design</h3>
+                        <p>You review real page designs, and we revise until they feel right.</p>
+                    </div>
+                    <div class="step">
+                        <h3>Build</h3>
+                        <p>We build the site, add your content and images, and test it in every major browser.</p>
+                    </div>
+                    <div class="step">
+                        <h3>Launch</h3>
+                        <p>We deploy the site live and make sure everything works before we hand it over.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="cta" id="contact">
+            <div class="wrap">
+                <div>
+                    <h2>Ready for a website that works as hard as you do?</h2>
+                    <p>Tell us about your business and we'll get back to you with next steps.</p>
+                </div>
+                <a class="btn" href="mailto:shiftstudiosweb@gmail.com">Email shiftstudiosweb@gmail.com</a>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="wrap">
+            <span>&copy; 2026 Shift Studios. All rights reserved.</span>
+            <span><a href="#">Privacy</a> &nbsp; <a href="#">Terms</a></span>
+        </div>
+    </footer>
+
+</body>
+
+</html>
